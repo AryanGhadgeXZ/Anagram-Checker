@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anagram Checker</title>
+    <style>
+        * {
+            font-size: 50px ; font-family: 'Times New Roman', Times, serif;
+        }
+        body{background-color: orange;}
+        input{text-align: center;}
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Anagram Checker</h1>
+        <form onsubmit="check()">
+        <input type="text" placeholder="Enter the First String" id="s1">
+        <br><br>
+        <input type="text" placeholder="Enter the Second String" id="s2">
+        <br><br>
+        <input type="submit" value="Check">
+        <h2 id="msg"></h2>
+        </form>
+
+        <script>
+            function check(){
+                event.preventDefault();
+                let s1 = document.getElementById("s1");
+                let s2 = document.getElementById("s2");
+                let msg = document.getElementById("msg");
+
+                if (s1.value.trim() == ""){
+                    alert("First string is empty");
+                    msg.innerHTML= "";
+                    s1.focus();
+                    return;
+                }
+                if (s2.value.trim() == ""){
+                    alert("First string is empty");
+                    msg.innerHTML= "";
+                    s2.focus();
+                    return;
+                }
+
+                let str1= s1.value.toUpperCase();
+                let str2= s2.value.toUpperCase();
+
+                let nstr1= str1.split("").sort().join("");
+                let nstr2= str2.split("").sort().join("");
+
+                if (nstr1 == nstr2)
+                    msg.innerHTML="Yes they are Anagrams";
+                else
+                    msg.innerHTML="Nope they are not Anagrams ";
+
+
+
+            }
+        </script>
+    </center>
+    
+</body>
+</html>
